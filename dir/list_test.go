@@ -4,7 +4,7 @@ import "testing"
 
 //Тест на создание списка
 func TestShopListCreation(t *testing.T) {
-	var shp_ls shopping_list
+	var shp_ls shoppingListItem
 	if &shp_ls == nil {
 		t.Errorf("Экземпляр структуры не создан")
 	}
@@ -12,7 +12,7 @@ func TestShopListCreation(t *testing.T) {
 
 //Тест проверку полей структуры списка
 func TestShopListFields(t *testing.T) {
-	var shp_ls shopping_list
+	var shp_ls shoppingListItem
 	if &shp_ls.Name == nil {
 		t.Errorf("Поле \"Name\" не существует")
 	}
