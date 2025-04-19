@@ -32,8 +32,8 @@ func TestShopListSliceCreation(t *testing.T) {
 	}
 }
 
-//Тест на добавление элемента в срез run test | debug test
-func TestShopListSliceAddind(t *testing.T) {
+//Тест на добавление элемента в срез
+func TestShopListSliceAdding(t *testing.T) {
 	var shopListSlice ShoppingList
 	item := shopListSlice.addItem("Milk", 4.5, "L")
 	if item != (shoppingListItem{Name: "Milk", Amount: 4.5, Unit: "L"}) {
