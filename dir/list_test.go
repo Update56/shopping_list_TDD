@@ -23,3 +23,11 @@ func TestShopListFields(t *testing.T) {
 		t.Errorf("Поле \"Unit\" не существует")
 	}
 }
+
+//Тест на создание среза с элементами списка
+func TestShopListSliceCreation(t *testing.T) {
+	var shpLsSlice ShoppingList
+	if &shpLsSlice == nil {
+		t.Errorf("Массив не создан")
+	}
+}
