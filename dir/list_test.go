@@ -31,3 +31,14 @@ func TestShopListSliceCreation(t *testing.T) {
 		t.Errorf("Массив не создан")
 	}
 }
+
+//Тест на добавление элемента в срез run test | debug test
+func TestShopListSliceAddind(t *testing.T) {
+	var shopListSlice ShoppingList
+	item := shopListSlice.addItem("Milk", 4.5, "L")
+	if item != (shoppingListItem{Name: "Milk", Amount: 4.5, Unit: "L"}) {
+		t.Errorf("Ошибка в добавлении элемента")
+	} else {
+		t.Log(item)
+	}
+}
