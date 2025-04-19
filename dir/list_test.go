@@ -42,3 +42,14 @@ func TestShopListSliceAdding(t *testing.T) {
 		t.Log(item)
 	}
 }
+
+//Тест на добавление элемента в срез из экземпляра
+func TestShopListSliceAddingFromInst(t *testing.T) {
+	var shopListSlice ShoppingList
+	item := shopListSlice.addItemFromInst(shoppingListItem{Name: "Sugar", Amount: 10, Unit: "kg"})
+	if item != (shoppingListItem{Name: "Sugar", Amount: 10, Unit: "kg"}) {
+		t.Errorf("Ошибка в добавлении элемента")
+	} else {
+		t.Log(item)
+	}
+}
