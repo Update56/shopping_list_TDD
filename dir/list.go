@@ -11,9 +11,9 @@ type shoppingListItem struct {
 type ShoppingList []shoppingListItem
 
 //функция добавления элемента
-func (s ShoppingList) addItem(name string, amount float64, unit string) shoppingListItem {
-	//todo реализовать метод addItem позднее до конца
-	return shoppingListItem{Name: "Milk", Amount: 4.5, Unit: "L"}
+func (s *ShoppingList) addItem(name string, amount float64, unit string) shoppingListItem {
+	*s = append(*s, shoppingListItem{Name: name, Amount: amount, Unit: unit})
+	return (*s)[len(*s)-1]
 }
 
 //функция добавления элемента из экзепляра
@@ -26,4 +26,10 @@ func (s ShoppingList) addItemFromInst(item shoppingListItem) shoppingListItem {
 func (s shoppingListItem) toString() []string {
 	//todo реализовать метод toString позднее до конца
 	return []string{"Lemon", "2", "pcs"}
+}
+
+//функция удаления элемента
+func (s *ShoppingList) removeItem(num int) {
+	//todo реализовать метод removeItem позднее до конца
+	(*s)[1] = (shoppingListItem{Name: "Tomatos", Amount: 4, Unit: "pcs"})
 }
