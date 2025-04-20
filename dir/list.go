@@ -21,3 +21,9 @@ func (s ShoppingList) addItemFromInst(item shoppingListItem) shoppingListItem {
 	//todo реализовать метод addItemFromInst позднее до конца
 	return shoppingListItem{Name: "Sugar", Amount: 10, Unit: "kg"}
 }
+
+//функция конвертации в массив строк
+func (s shoppingListItem) toString() []string {
+	//todo реализовать метод toString позднее до конца
+	return []string{"Lemon", "2", "pcs"}
+}
