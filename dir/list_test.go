@@ -65,3 +65,19 @@ func TestShopListItemToStringSlice(t *testing.T) {
 		t.Log(shopListItemString)
 	}
 }
+
+//Тест на удаление элемента из массива
+func TestShopListRemoveItem(t *testing.T) {
+	var shopListSlice ShoppingList
+	shopListSlice.addItem("Meat", 2.5, "kg")
+	shopListSlice.addItem("Soda", 1.5, "L")
+	shopListSlice.addItem("Tomatos", 4, "pcs")
+	shopListSlice.removeItem(1)
+
+	if shopListSlice[0] != (shoppingListItem{Name: "Meat", Amount: 2.5, Unit: "kg"}) ||
+		shopListSlice[1] != (shoppingListItem{Name: "Tomatos", Amount: 4, Unit: "pcs"}) {
+		t.Errorf("Ошибка удаления элемента")
+	} else {
+		t.Log(shopListSlice)
+	}
+}
