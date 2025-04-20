@@ -1,4 +1,4 @@
-package list
+package mlist
 
 //структура элмента списка
 type shoppingListItem struct {

@@ -1,4 +1,4 @@
-package list
+package mlist
 
 import "testing"
 
