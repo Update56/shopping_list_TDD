@@ -53,3 +53,15 @@ func TestShopListSliceAddingFromInst(t *testing.T) {
 		t.Log(item)
 	}
 }
+
+//Тест на конвертацию элемента списка в массив строк
+func TestShopListItemToStringSlice(t *testing.T) {
+	shopListItemString := shoppingListItem{Name: "Lemon", Amount: 2, Unit: "pcs"}.toString()
+	if shopListItemString[0] != "Lemon" ||
+		shopListItemString[1] != "2" ||
+		shopListItemString[2] != "pcs" {
+		t.Errorf("Ошибка конвертиции в строку")
+	} else {
+		t.Log(shopListItemString)
+	}
+}
