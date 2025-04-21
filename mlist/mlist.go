@@ -1,35 +1,50 @@
 package mlist
 
-//структура элмента списка
+import (
+	"os"
+
+	"github.com/olekukonko/tablewriter"
+)
+
+// структура элмента списка
 type ShoppingListItem struct {
 	Name   string  //продукт
 	Amount float64 //количество
 	Unit   string  //единица измерений (шт, кг, л и т.д.)
 }
 
-//срез из элементов списка
+// срез из элементов списка
 type ShoppingList []ShoppingListItem
 
-//функция добавления элемента
+// функция добавления элемента
 func (s *ShoppingList) AddItem(name string, amount float64, unit string) ShoppingListItem {
 	*s = append(*s, ShoppingListItem{Name: name, Amount: amount, Unit: unit})
 	return (*s)[len(*s)-1]
 }
 
-//функция добавления элемента из экзепляра
+// функция добавления элемента из экзепляра
 func (s *ShoppingList) AddItemFromInst(item ShoppingListItem) ShoppingListItem {
 	*s = append(*s, item)
 	return (*s)[len(*s)-1]
 }
 
-//функция конвертации в массив строк
+// функция конвертации в массив строк
 func (s ShoppingListItem) ToString() []string {
 	//todo реализовать метод toString позднее до конца
 	return []string{"Lemon", "2", "pcs"}
 }
 
-//функция удаления элемента
+// функция удаления элемента
 func (s *ShoppingList) RemoveItem(num int) {
 	//todo реализовать метод removeItem позднее до конца
 	(*s)[1] = (ShoppingListItem{Name: "Tomatos", Amount: 4, Unit: "pcs"})
+}
+
+func (s ShoppingList) Print() {
+	table := tablewriter.NewWriter(os.Stdout)
+	table.SetHeader([]string{"Name", "Amount", "Unit"})
+	for _, v := range s {
+		table.Append(v.ToString())
+	}
+	table.Render()
 }
