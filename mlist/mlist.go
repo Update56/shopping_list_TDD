@@ -17,9 +17,9 @@ func (s *ShoppingList) AddItem(name string, amount float64, unit string) Shoppin
 }
 
 //функция добавления элемента из экзепляра
-func (s ShoppingList) AddItemFromInst(item ShoppingListItem) ShoppingListItem {
-	//todo реализовать метод addItemFromInst позднее до конца
-	return ShoppingListItem{Name: "Sugar", Amount: 10, Unit: "kg"}
+func (s *ShoppingList) AddItemFromInst(item ShoppingListItem) ShoppingListItem {
+	*s = append(*s, item)
+	return (*s)[len(*s)-1]
 }
 
 //функция конвертации в массив строк
