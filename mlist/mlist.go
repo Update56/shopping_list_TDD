@@ -1,6 +1,7 @@
 package mlist
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/olekukonko/tablewriter"
@@ -30,8 +31,7 @@ func (s *ShoppingList) AddItemFromInst(item ShoppingListItem) ShoppingListItem {
 
 // функция конвертации в массив строк
 func (s ShoppingListItem) ToString() []string {
-	//todo реализовать метод toString позднее до конца
-	return []string{"Lemon", "2", "pcs"}
+	return []string{s.Name, fmt.Sprintf("%g", s.Amount), s.Unit}
 }
 
 // функция удаления элемента
