@@ -4,7 +4,7 @@ import "testing"
 
 //Тест на создание списка
 func TestShopListCreation(t *testing.T) {
-	var shp_ls shoppingListItem
+	var shp_ls ShoppingListItem
 	if &shp_ls == nil {
 		t.Errorf("Экземпляр структуры не создан")
 	}
@@ -12,7 +12,7 @@ func TestShopListCreation(t *testing.T) {
 
 //Тест проверку полей структуры списка
 func TestShopListFields(t *testing.T) {
-	var shp_ls shoppingListItem
+	var shp_ls ShoppingListItem
 	if &shp_ls.Name == nil {
 		t.Errorf("Поле \"Name\" не существует")
 	}
@@ -35,8 +35,8 @@ func TestShopListSliceCreation(t *testing.T) {
 //Тест на добавление элемента в срез
 func TestShopListSliceAdding(t *testing.T) {
 	var shopListSlice ShoppingList
-	item := shopListSlice.addItem("Milk", 4.5, "L")
-	if item != (shoppingListItem{Name: "Milk", Amount: 4.5, Unit: "L"}) {
+	item := shopListSlice.AddItem("Milk", 4.5, "L")
+	if item != (ShoppingListItem{Name: "Milk", Amount: 4.5, Unit: "L"}) {
 		t.Errorf("Ошибка в добавлении элемента")
 	} else {
 		t.Log(item)
@@ -46,8 +46,8 @@ func TestShopListSliceAdding(t *testing.T) {
 //Тест на добавление элемента в срез из экземпляра
 func TestShopListSliceAddingFromInst(t *testing.T) {
 	var shopListSlice ShoppingList
-	item := shopListSlice.addItemFromInst(shoppingListItem{Name: "Sugar", Amount: 10, Unit: "kg"})
-	if item != (shoppingListItem{Name: "Sugar", Amount: 10, Unit: "kg"}) {
+	item := shopListSlice.AddItemFromInst(ShoppingListItem{Name: "Sugar", Amount: 10, Unit: "kg"})
+	if item != (ShoppingListItem{Name: "Sugar", Amount: 10, Unit: "kg"}) {
 		t.Errorf("Ошибка в добавлении элемента")
 	} else {
 		t.Log(item)
@@ -56,7 +56,7 @@ func TestShopListSliceAddingFromInst(t *testing.T) {
 
 //Тест на конвертацию элемента списка в массив строк
 func TestShopListItemToStringSlice(t *testing.T) {
-	shopListItemString := shoppingListItem{Name: "Lemon", Amount: 2, Unit: "pcs"}.toString()
+	shopListItemString := ShoppingListItem{Name: "Lemon", Amount: 2, Unit: "pcs"}.ToString()
 	if shopListItemString[0] != "Lemon" ||
 		shopListItemString[1] != "2" ||
 		shopListItemString[2] != "pcs" {
@@ -69,13 +69,13 @@ func TestShopListItemToStringSlice(t *testing.T) {
 //Тест на удаление элемента из массива
 func TestShopListRemoveItem(t *testing.T) {
 	var shopListSlice ShoppingList
-	shopListSlice.addItem("Meat", 2.5, "kg")
-	shopListSlice.addItem("Soda", 1.5, "L")
-	shopListSlice.addItem("Tomatos", 4, "pcs")
-	shopListSlice.removeItem(1)
+	shopListSlice.AddItem("Meat", 2.5, "kg")
+	shopListSlice.AddItem("Soda", 1.5, "L")
+	shopListSlice.AddItem("Tomatos", 4, "pcs")
+	shopListSlice.RemoveItem(1)
 
-	if shopListSlice[0] != (shoppingListItem{Name: "Meat", Amount: 2.5, Unit: "kg"}) ||
-		shopListSlice[1] != (shoppingListItem{Name: "Tomatos", Amount: 4, Unit: "pcs"}) {
+	if shopListSlice[0] != (ShoppingListItem{Name: "Meat", Amount: 2.5, Unit: "kg"}) ||
+		shopListSlice[1] != (ShoppingListItem{Name: "Tomatos", Amount: 4, Unit: "pcs"}) {
 		t.Errorf("Ошибка удаления элемента")
 	} else {
 		t.Log(shopListSlice)
