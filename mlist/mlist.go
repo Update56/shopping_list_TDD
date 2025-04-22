@@ -36,8 +36,12 @@ func (s ShoppingListItem) ToString() []string {
 
 // функция удаления элемента
 func (s *ShoppingList) RemoveItem(num int) {
-	//todo реализовать метод removeItem позднее до конца
-	(*s)[1] = (ShoppingListItem{Name: "Tomatos", Amount: 4, Unit: "pcs"})
+	num = num - 1
+	if num > len(*s) {
+		fmt.Println("Не верный элемент")
+		return
+	}
+	*s = append((*s)[:num], (*s)[num+1:]...)
 }
 
 func (s ShoppingList) Print() {
